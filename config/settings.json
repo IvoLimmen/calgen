@@ -1,0 +1,76 @@
+{
+  "title": "Some title",
+  "fontName": "DejaVu Sans",
+  "backgroundColor": "#ffffff",
+  "normalColor": "#333333",
+  "weekendColor": "#808080",
+  "columnHeaderColor": "#e5acba",
+  "pageSize": "A4",
+  "showWeekNumbers": true,
+  "colorSets": [
+    {
+      "color": "#4eb4ce",
+      "set": 1
+    },
+    {
+      "color": "#74CE4E",
+      "set": 2
+    }
+  ],
+  "vacations": [
+    {
+      "startDate": "2023-10-23",
+      "endDate": "2023-10-27",
+      "type": "Herfstvakantie",
+      "colorCode": 1
+    },
+    {
+      "startDate": "2023-12-25",
+      "endDate": "2024-01-05",
+      "type": "Kerstvakantie",
+      "colorCode": 1
+    },
+    {
+      "startDate": "2024-02-19",
+      "endDate": "2024-02-23",
+      "type": "Voorjaarsvakantie",
+      "colorCode": 1
+    },
+    {
+      "startDate": "2024-03-29",
+      "endDate": "2024-03-29",
+      "type": "Goede vrijdag",
+      "colorCode": 1
+    },
+    {
+      "startDate": "2024-04-01",
+      "endDate": "2024-04-01",
+      "type": "Tweede paasdag",
+      "colorCode": 1
+    },
+    {
+      "startDate": "2024-04-29",
+      "endDate": "2024-05-10",
+      "type": "Meivakantie",
+      "colorCode": 1
+    },
+    {
+      "startDate": "2024-05-20",
+      "endDate": "2024-05-20",
+      "type": "Tweede Pinksterdag",
+      "colorCode": 1
+    },
+    {
+      "startDate": "2024-07-22",
+      "endDate": "2024-09-01",
+      "type": "Zomervakantie",
+      "colorCode": 1
+    },
+    {
+      "startDate": "2023-09-25",
+      "endDate": "2023-09-25",
+      "type": "Studiedag",
+      "colorCode": 2
+    }
+  ]
+}
