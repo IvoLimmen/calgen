@@ -1,5 +1,6 @@
 {
   "title": "Some title",
+  "language": "EN",
   "fontName": "DejaVu Sans",
   "backgroundColor": "#ffffff",
   "normalColor": "#333333",
@@ -14,42 +15,12 @@
         {
           "startDate": "2023-10-23",
           "endDate": "2023-10-27",
-          "type": "Herfstvakantie"
+          "type": "Spring holiday"
         },
         {
           "startDate": "2023-12-25",
           "endDate": "2024-01-05",
-          "type": "Kerstvakantie"
-        },
-        {
-          "startDate": "2024-02-19",
-          "endDate": "2024-02-23",
-          "type": "Voorjaarsvakantie"
-        },
-        {
-          "startDate": "2024-03-29",
-          "endDate": "2024-03-29",
-          "type": "Goede vrijdag"
-        },
-        {
-          "startDate": "2024-04-01",
-          "endDate": "2024-04-01",
-          "type": "Tweede paasdag"
-        },
-        {
-          "startDate": "2024-04-29",
-          "endDate": "2024-05-10",
-          "type": "Meivakantie"
-        },
-        {
-          "startDate": "2024-05-20",
-          "endDate": "2024-05-20",
-          "type": "Tweede Pinksterdag"
-        },
-        {
-          "startDate": "2024-07-22",
-          "endDate": "2024-09-01",
-          "type": "Zomervakantie"
+          "type": "Christmas holiday"
         }
       ]
     },
@@ -59,7 +30,7 @@
         {
           "startDate": "2023-09-25",
           "endDate": "2023-09-25",
-          "type": "Studiedag"
+          "type": "Study day"
         }
       ]
     }

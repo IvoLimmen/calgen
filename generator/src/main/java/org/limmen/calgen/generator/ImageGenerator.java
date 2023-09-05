@@ -78,6 +78,10 @@ public class ImageGenerator {
     ImageIO.write(image, "png", new File(String.format("calendar-%d.png", number)));
   }
 
+  private Locale getLocale() {
+    return Locale.forLanguageTag(this.context.getLanguage());
+  }
+
   private void createColumnHeader(Graphics graphics, int column, LocalDate date) {
     int columnWidth = (this.context.getPageSize().getWidth() / 6);
     int startX = columnWidth * column;
@@ -90,7 +94,7 @@ public class ImageGenerator {
     graphics.setColor(new Color(0, 0, 0));
     graphics.setFont(columnFont);
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM").withLocale(Locale.forLanguageTag("NL"));
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM").withLocale(getLocale());
     centerString(graphics, formatter.format(date), startX + (columnWidth / 2), 380);
   }
 
@@ -116,7 +120,7 @@ public class ImageGenerator {
     graphics.setColor(new Color(0, 0, 0));
     graphics.drawRect(startX, startY, columnWidth, cellHeight);
     
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E").withLocale(Locale.forLanguageTag("NL"));
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E").withLocale(getLocale());
 
     graphics.setColor(new Color(0, 0, 0));
     graphics.setFont(smallCellFont);
@@ -129,7 +133,7 @@ public class ImageGenerator {
     }
 
     if (this.context.isShowWeekNumbers() && date.get(ChronoField.DAY_OF_WEEK) == 1) {      
-      int weekNr = date.get(WeekFields.of(new Locale("nl_NL")).weekOfWeekBasedYear());
+      int weekNr = date.get(WeekFields.of(getLocale()).weekOfWeekBasedYear());
       graphics.setFont(smallCellFont);
       graphics.drawString(String.format("Week %d", weekNr), (startX + columnWidth) - 110, startY - 25 + (cellHeight / 2));
     }

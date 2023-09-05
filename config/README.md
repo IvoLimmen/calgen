@@ -15,6 +15,7 @@ weekendColor - background color to use on a weekend day
 columnHeaderColor - background color on the top column displaying the month
 pageSize - A4 or A3 for the size of the images
 showWeekNumbers - true if you like to see the weeknumbers in the calendar displayed
+language - use the ISO standard to make the labels in a different language (like EN, NL, etc.)
 
 ## HolidaySets
 

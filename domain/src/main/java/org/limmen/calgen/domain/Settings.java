@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 public class Settings {
 
+  private String language;
   private List<HolidaySet> holidaySets;
   private Color weekendColor;
   private Color backgroundColor;
@@ -17,6 +18,14 @@ public class Settings {
   private String title;
   private PageSize pageSize;  
 
+  public String getLanguage() {
+    return language;
+  }
+
+  public void setLanguage(String language) {
+    this.language = language;
+  }
+  
   public PageSize getPageSize() {
     return pageSize;
   }
