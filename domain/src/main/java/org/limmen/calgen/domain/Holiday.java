@@ -2,12 +2,11 @@ package org.limmen.calgen.domain;
 
 import java.time.LocalDate;
 
-public class Vacation {
+public class Holiday {
 
   private LocalDate startDate;
   private LocalDate endDate;
   private String type;
-  private int colorCode;
 
   public LocalDate getStartDate() {
     return startDate;
@@ -20,10 +19,6 @@ public class Vacation {
   public String getType() {
     return type;
   }
-
-  public int getColorCode() {
-    return colorCode;
-  }
  
   public void setStartDate(LocalDate startDate) {
     this.startDate = startDate;
@@ -35,10 +30,6 @@ public class Vacation {
 
   public void setType(String type) {
     this.type = type;
-  }
-
-  public void setColorCode(int colorCode) {
-    this.colorCode = colorCode;
   }
 
   public boolean isOverlapping(LocalDate date) {

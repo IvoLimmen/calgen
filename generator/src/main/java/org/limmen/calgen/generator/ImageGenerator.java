@@ -19,9 +19,9 @@ import java.util.Optional;
 
 import javax.imageio.ImageIO;
 
-import org.limmen.calgen.domain.ColorSet;
+import org.limmen.calgen.domain.Holiday;
+import org.limmen.calgen.domain.HolidaySet;
 import org.limmen.calgen.domain.Settings;
-import org.limmen.calgen.domain.Vacation;
 
 public class ImageGenerator {
 
@@ -101,10 +101,10 @@ public class ImageGenerator {
     int startX = columnWidth * column;
     int startY = 400 + ((cell - 1) * cellHeight);
 
-    Optional<Vacation> vacation = getVacationForDate(date);
+    Optional<HolidaySet> set = getHolidaySetForDate(date);
 
-    if (vacation.isPresent()) {
-      graphics.setColor(getColorForSet(vacation.get().getColorCode()));
+    if (set.isPresent()) {
+      graphics.setColor(set.get().getColor());
     } else {
       if (date.get(ChronoField.DAY_OF_WEEK) > 5) {
         graphics.setColor(this.context.getWeekendColor());
@@ -115,16 +115,17 @@ public class ImageGenerator {
     graphics.fillRect(startX, startY, columnWidth, cellHeight);
     graphics.setColor(new Color(0, 0, 0));
     graphics.drawRect(startX, startY, columnWidth, cellHeight);
-
+    
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("E").withLocale(Locale.forLanguageTag("NL"));
 
     graphics.setColor(new Color(0, 0, 0));
     graphics.setFont(smallCellFont);
     graphics.drawString(String.format("%s %d", formatter.format(date), cell), startX + 15, startY - 25 + (cellHeight / 2));
 
-    if (vacation.isPresent()) {
+    if (set.isPresent()) {
+      Holiday holiday = set.get().getHolidayForDate(date);
       graphics.setFont(cellFont);
-      graphics.drawString(vacation.get().getType(), startX + 15, startY + 15 + (cellHeight / 2));
+      graphics.drawString(holiday.getType(), startX + 15, startY + 15 + (cellHeight / 2));
     }
 
     if (this.context.isShowWeekNumbers() && date.get(ChronoField.DAY_OF_WEEK) == 1) {      
@@ -153,19 +154,10 @@ public class ImageGenerator {
     graphics.drawString(text, posX, posY);
   }
 
-  private Color getColorForSet(int set) {
-    return this.context.getColorSets()
+  private Optional<HolidaySet> getHolidaySetForDate(LocalDate date) {
+    return this.context.getHolidaySets()        
         .stream()
-        .filter(f -> f.getSet() == set)
-        .findFirst()
-        .map(ColorSet::getColor)
-        .orElse(Color.GRAY);
-  }
-
-  private Optional<Vacation> getVacationForDate(LocalDate date) {
-    return this.context.getVacations()
-        .stream()
-        .filter(f -> f.isOverlapping(date))
+        .filter(s -> s.containsDateInSet(date))
         .findFirst();
   }
 }

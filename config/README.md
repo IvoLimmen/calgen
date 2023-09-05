@@ -16,18 +16,17 @@ columnHeaderColor - background color on the top column displaying the month
 pageSize - A4 or A3 for the size of the images
 showWeekNumbers - true if you like to see the weeknumbers in the calendar displayed
 
-## ColorSets
+## HolidaySets
 
-You can define color sets and refer to them in the vacations. So you can define on or multiple colors and in the vacation simply refer to the `set` using the `colorCode`
+You can define color sets for a set of holidays.
 
-set - the number to refer to
 color - the background color to use for the vacation
+holidays - set of holidays to draw with a specific color.
 
-## Vacations
+## Holidays
 
-A vacation simply has the following properties:
+A holiday simply has the following properties:
 
 startDate - starting date of the vacation (yyyy-mm-dd)
 endDate - end date of the vacation (yyyy-mm-dd)
 type - group name; like "Summerholiday", this is shown on the calendar
-colorCode - the reference to the colorset to use so you can show different colors for certain types of vacations if needed

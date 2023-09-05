@@ -1,13 +1,13 @@
 package org.limmen.calgen.domain;
 
 import java.awt.Color;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Settings {
 
-  private List<ColorSet> colorSets;
-  private List<Vacation> vacations;
+  private List<HolidaySet> holidaySets;
   private Color weekendColor;
   private Color backgroundColor;
   private Color normalColor;
@@ -27,14 +27,6 @@ public class Settings {
   
   public String getTitle() {
     return title;
-  }
-
-  public List<ColorSet> getColorSets() {
-    return colorSets;
-  }
-
-  public List<Vacation> getVacations() {
-    return vacations;
   }
 
   public Color getWeekendColor() {
@@ -59,14 +51,6 @@ public class Settings {
 
   public boolean isShowWeekNumbers() {
     return showWeekNumbers;
-  }
-
-  public void setColorSets(List<ColorSet> colorSets) {
-    this.colorSets = colorSets;
-  }
-
-  public void setVacations(List<Vacation> vacations) {
-    this.vacations = vacations;
   }
 
   public void setWeekendColor(Color weekend) {
@@ -97,10 +81,19 @@ public class Settings {
     this.title = title;
   }
 
+  public List<HolidaySet> getHolidaySets() {
+    return holidaySets;
+  }
+
+  public void setHolidaySets(List<HolidaySet> holidaySets) {
+    this.holidaySets = holidaySets;
+  }
+
   public int getYear() {
-    return this.vacations.stream()
-        .map(Vacation::getStartDate)
-        .map(date -> date.getYear())
+    return this.holidaySets.stream()
+        .flatMap(h -> h.getHolidays().stream())
+        .map(Holiday::getStartDate)
+        .map(LocalDate::getYear)
         .collect(Collectors.minBy((o1, o2) -> {
           return o1.compareTo(o2);
         }))
